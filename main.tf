@@ -3,7 +3,11 @@ module "dev-vpc" {
   vpc_cidr = "10.0.0.0/16"
   vpc_name = "dev-vpc"
 }
-
+module "qa-vpc" {
+  source   = "./modules/vpc-module"
+  vpc_cidr = "192.168.0.0/16"
+  vpc_name = "qa-vpc"
+}
 module "dev-sn-1" {
   source      = "./modules/subnet-module"
   vpc_id      = module.dev-vpc.vpcidop
